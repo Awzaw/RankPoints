@@ -1,0 +1,12 @@
+name: RankPoints
+main: JD\RankPoints\Main
+version: 1.0
+api: [1.0.0,1.1.0,1.2.0,1.3.0,2.0.0]
+author: JD
+load: POSTWORLD
+commands:
+  rankpoints:
+    description: "Shows Rank Points"
+    usage: "/rankpoints"
+    
+    

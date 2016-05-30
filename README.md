@@ -2,7 +2,7 @@
 
 RankPoints keeps track of points that are awarded to players using plugins such as VoteReward which allow you to run commands (or on console).  PurePerms ranks are set automatically according to the config.
 
-This plugin ONLY supports PurePerms. Please post questions in the "Thread" section, not "Review".
+This plugin ONLY supports PurePerms.
 
 In-Game Commands:
 /rankpoints - displays your own rank points

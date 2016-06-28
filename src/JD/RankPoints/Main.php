@@ -144,16 +144,17 @@ class Main extends PluginBase {
         $data = $this->getPlayerData($name);
         if (isset($data["votes"])) {$oldvotes = $data["votes"];} else {$oldvotes = 0;}
         $newvotes = $oldvotes + $pointstogive;
-
+        
         $config = new Config($this->getDataFolder() . "players/" . strtolower($name) . ".yml", Config::YAML);
         $config->set("votes", $newvotes);
         $config->save();
 
         $currentgroup = $this->purePerms->getUserDataMgr()->getGroup($p);
         $currentgroupName = $currentgroup->getName();
+        
         $currentRankIndex = array_search($currentgroupName, $this->ranksConfig["Ranks"]);
-        if (!$currentRankIndex)
-            return true;
+
+        if (!isset($currentRankIndex)) return true;
 
         $num = 0;
         foreach ($this->ranksConfig["Ranks"] as $i) {

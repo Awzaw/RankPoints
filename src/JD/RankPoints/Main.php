@@ -155,18 +155,23 @@ class Main extends PluginBase {
 
         $currentgroup = $this->purePerms->getUserDataMgr()->getGroup($p);
         $currentgroupName = $currentgroup->getName();
+        
+var_dump($this->ranksConfig["Ranks"]);
 
         $currentRankIndex = array_search($currentgroupName, $this->ranksConfig["Ranks"]);
-
-        if (($currentRankIndex) == false)
+echo("CurrentGroup : " . $currentgroupName . "\n");
+echo("CurrentRankIndex: " . $currentRankIndex . "\n");
+        if ($currentRankIndex === false)
             return true;
 
+        echo("start loop");
         $num = 0;
         foreach ($this->ranksConfig["Ranks"] as $i) {
-
+echo($i . "\n");
             if ($newvotes >= $this->ranksConfig["Points"][$num]) {
 
                 $configRankIndex = array_search($i, $this->ranksConfig["Ranks"]);
+
 
                 if ($currentRankIndex < $configRankIndex) {
                     $newgroup = $this->purePerms->getGroup($i);

@@ -1,0 +1,7 @@
+---
+branches: master
+projects:
+  RankPoints:
+    path: ""
+    model: default
+...

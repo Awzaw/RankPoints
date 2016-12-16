@@ -4,12 +4,10 @@ namespace JD\RankPoints;
 
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
-//use pocketmine\command\ConsoleCommandSender;
 use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
-//use pocketmine\utils\TextFormat;
-//use pocketmine\item\Item;
 use pocketmine\utils\Config;
+use pocketmine\utils\TextFormat;
 
 class Main extends PluginBase {
 
@@ -30,7 +28,7 @@ class Main extends PluginBase {
 
         $num = 0;
         foreach ($this->ranksConfig["Ranks"] as $i) {
-            echo $i . " - " . $this->ranksConfig["Points"][$num] . "\n";
+            $this->getLogger()->info(TextFormat::GREEN . $i . " : " . $this->ranksConfig["Points"][$num]);
             $num ++;
         }
     }
@@ -100,13 +98,15 @@ class Main extends PluginBase {
                 $data = $config->getAll();
                 $votecount = $data["votes"];
                 $sender->sendMessage("You have a total of " . $votecount . " Rank Points");
+                $num = 0;
+                foreach ($this->ranksConfig["Ranks"] as $i) {
+                    $sender->sendMessage(TextFormat::GREEN . $i . " : " . $this->ranksConfig["Points"][$num]);
+                    $num ++;
+                }
             }
 
             return true;
         }
-
-
-
 
         if (!isset($pointstogive)) {
             if (!isset($name)) {
@@ -115,7 +115,7 @@ class Main extends PluginBase {
             }
 
             if (!$this->playerRegistered($name)) {
-                $sender->sendMessage("That player has never voted");
+                $sender->sendMessage("That player has no Rank Points");
                 return true;
             }
 
@@ -140,7 +140,6 @@ class Main extends PluginBase {
             return true;
         }
 
-
         $data = $this->getPlayerData($name);
         if (isset($data["votes"])) {
             $oldvotes = $data["votes"];
@@ -155,23 +154,18 @@ class Main extends PluginBase {
 
         $currentgroup = $this->purePerms->getUserDataMgr()->getGroup($p);
         $currentgroupName = $currentgroup->getName();
-        
-var_dump($this->ranksConfig["Ranks"]);
 
         $currentRankIndex = array_search($currentgroupName, $this->ranksConfig["Ranks"]);
-echo("CurrentGroup : " . $currentgroupName . "\n");
-echo("CurrentRankIndex: " . $currentRankIndex . "\n");
+
         if ($currentRankIndex === false)
             return true;
 
-        echo("start loop");
         $num = 0;
         foreach ($this->ranksConfig["Ranks"] as $i) {
-echo($i . "\n");
+
             if ($newvotes >= $this->ranksConfig["Points"][$num]) {
 
                 $configRankIndex = array_search($i, $this->ranksConfig["Ranks"]);
-
 
                 if ($currentRankIndex < $configRankIndex) {
                     $newgroup = $this->purePerms->getGroup($i);
@@ -182,10 +176,7 @@ echo($i . "\n");
             $num ++;
         }
 
-
         return true;
     }
 
 }
-
-?>

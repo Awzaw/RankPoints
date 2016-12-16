@@ -136,7 +136,7 @@ class Main extends PluginBase {
         $p = $this->getServer()->getPlayer($name);
 
         if (!isset($p)) {
-            echo "Player is not online" . "\n";
+            $this->getLogger()->info("Player $name is not online");
             return true;
         }
 

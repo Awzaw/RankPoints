@@ -89,6 +89,7 @@ class Main extends PluginBase {
 
                 if (!isset($data["votes"])) {
                     $sender->sendMessage("That player never voted");
+                    return;
                 }
                 $votecount = $data["votes"];
                 $sender->sendMessage($name . " has a total of " . $votecount . " Rank Points");

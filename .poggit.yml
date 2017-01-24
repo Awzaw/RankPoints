@@ -3,5 +3,6 @@ branches: master
 projects:
   RankPoints:
     path: ""
+    icon: rplogo.png
     model: default
 ...

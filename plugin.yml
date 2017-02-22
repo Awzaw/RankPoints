@@ -1,12 +1,12 @@
 name: RankPoints
 main: JD\RankPoints\Main
-version: 1.4.2
-api: [2.0.0, 3.0.0-ALPHA1, 3.0.0-ALPHA2, 3.0.0-ALPHA3]
+version: 1.5
+api: [2.0.0, 3.0.0-ALPHA1, 3.0.0-ALPHA2, 3.0.0-ALPHA3, 3.0.0-ALPHA4]
 author: JD
 load: POSTWORLD
 commands:
   rankpoints:
-    description: "Shows Rank Points"
-    usage: "/rankpoints"
+    description: "Shows/Gives Rank Points"
+    usage: "/rankpoints {player points}"
     
     

@@ -5,29 +5,35 @@ RankPoints keeps track of points that are awarded to players using plugins such 
 This plugin ONLY supports PurePerms.
 
 In-Game Commands:
+
 /rankpoints - displays your own rank points
 /rankpoints player - displays rank points for a player
 
 Console or Plugin Commands:
+
 rankpoints player points
 
 where player is a player's IGN, and points is an integer.
 
-Putting the following lines at the end of VoteReward
+For example: put the following lines at the end of VoteReward
 
+```
 Commands:
   - "rankpoints {USERNAME} 1"
+```
 
-or running the command "rankpoints awzaw 1" on console, will add 1 point to the player awzaw's current rank points total, then check the config.yml which must be configured in this format, for example:
+Running the command "rankpoints awzaw 1" on console, will add 1 point to the player awzaw's current rank points total, then check the config.yml which must be configured in this format, for example:
 
+```
 Ranks:
+- Guest
 - Member
-- Builder
-- Admin
+- VIP
 Points:
 - 0
-- 5
+- 10
 - 50
+```
 
 You MUST have PurePerms installed, and the Ranks in RankPoints config.yml MUST all be existing PurePerms groups.
 

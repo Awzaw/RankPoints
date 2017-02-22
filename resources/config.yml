@@ -1,20 +1,12 @@
 # Config file for RankPoints by JD;
-# Requires PurePerms
+# Requires PurePerms, can be used with VoteReward or other plugins by using the 'rankpoints player' command
+# All Groups MUST exist in PurePerms groups.yml, and the default group must be the first with 0 points
 
-# Your server's API key; Can be found on your server's settings page.
-API-Key: ""
-
-# The URL for players to go to so they can vote;
-Vote-URL: ""
-
-Rewards:
-
-# List of items to give players when they vote; Format: ID:Damage:Amount
-  Items:
-  - "264:0:5"
-  - "265:0:3"
-  - "364:0:5"
-
-# List of commands to execute when a player votes; Use {PLAYER} to get the player's name.
-  Commands:
-  - "say {PLAYER} voted with /vote and got cool rewards!"
+Ranks:
+- Guest
+- Member
+- VIP
+Points:
+- 0
+- 10
+- 50

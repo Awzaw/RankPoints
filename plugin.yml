@@ -1,7 +1,7 @@
 name: RankPoints
 main: JD\RankPoints\Main
-version: 1.5.2
-api: [3.0.0-ALPHA7]
+version: 1.5.2-1.alpha8
+api: [3.0.0-ALPHA7, 3.0.0-ALPHA8]
 author: JD
 load: POSTWORLD
 commands:

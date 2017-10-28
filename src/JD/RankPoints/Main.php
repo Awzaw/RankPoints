@@ -127,6 +127,8 @@ class Main extends PluginBase {
             $votecount = $data["votes"];
             $sender->sendMessage($name . " has a total of " . $votecount . " Rank Points");
             return true;
+        } elseif (!isset($name)){
+            return false;
         }
 
         if (!$this->playerRegistered($name)) {
